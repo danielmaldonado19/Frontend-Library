@@ -7,15 +7,38 @@ class Book{
     this._author = author;
     this._topic = topic;
     this._price = price;
-    /*"this" word refers directly to the object property. Thats how we assign a value to the referred property when we create a new object instance*/   
+    /*"this" word refers directly to the object property. Thats how we assign a value to the referred property when we create a new object instance. "_" symbol means the property is private and it shouldnt be modified.*/   
     }
-    
     /*Abstraction: pick up ONLY the useful properties of a object. It only focus in important details*/
 }
-/*The class has no return.
-
-It only contains vars and functions (properties & methods).
+/*Any class has no return. It only contains variables and functions (properties & methods).
 */
+
+
+class Comic extends Book{
+/*By the command "extends" we indicate which class is the parent class for this one. In this case the parent is Book*/
+
+constructor(title,author,topic,price, comicCharacters, villain){
+
+    super(title, author, topic, price);
+    //This way we call the parent class properties.
+    this._comicCharacters = comicCharacters;
+    /*For the especific properties, we call assign them as always. In this case, "comicCharacters" property includes various names, thats ways it can contain an array.*/
+    this._villain = villain;
+}
+
+addVillain(villain){
+    this._villain = villain;
+}
+/*This is how we include methods in the class. The methods are the class functions*/
+
+}
+/*Comic class needs the same properties as Book class(title,author, topic, price). So we are going to inherit Comic class*/
+
 
 const book1 = new Book("Millionaire Mind", "T. Harv Ecker", "Self Improvement", 16);
 //Thats how we instantiate a new class
+
+const comic1 = new Comic("Black, White & Blood", "Allred Yost", "Violence", 4.99, "ergjeg");
+
+comic1.addVillain("Fuuuuck");
